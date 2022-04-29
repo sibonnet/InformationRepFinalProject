@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Project 1 - sample code</title>
+	<title>Final Project: Shawn Ibonnet</title>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
 	<style>
     	text { 
@@ -25,7 +25,7 @@
 <body>
 
 	<svg id="main" width="600" height="600">
-		<text id='label' x='20' y='20'>Energy prodcution for the US</text>
+		<text id='label' x='20' y='20'>2021 NBA Draft Prospect Wingspan</text>
 		<g transform="translate(20,40)">
 		
 
@@ -38,16 +38,16 @@
 		var BAR_WIDTH = 10;
 		var MAX_BAR_HEIGHT = 100;
 
-		var energyProduction = [ ];
+		var wingspan = [ ];
 
 		function drawBarChart() 
 		{
 			
 
-			var maxValue = d3.max(energyProduction);
+			var maxValue = d3.max(wingspan);
 
 
-			var selection = d3.select('svg').select('g').selectAll('rect').data(energyProduction);
+			var selection = d3.select('svg').select('g').selectAll('rect').data(wingspan);
 
 			var rectangles = selection.enter().append('rect');
 			
@@ -72,15 +72,15 @@
 		}
 			
 
-		d3.csv('energy_us.csv', function(data) 
+		d3.csv('Wingspan.csv', function(data) 
 		{
 			var record = data[0];
 
 			// loop through all years, from 1980 to 2012
-			for (var year=1980; year<=2012; year++) 
+			for (var wingspan=70; wingspan<=90; wingspan++) 
 			{
-				var value = record[year];	
-				energyProduction.push(+value);
+				var value = record[wingspan];	
+				wingspan.push(+value);
 			}
 
 			drawBarChart();
